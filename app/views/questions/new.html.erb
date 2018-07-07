@@ -1,0 +1,11 @@
+<div class="container text-center pt-3">
+
+  <%= form_tag(questions_path, method: :post) do %>
+    <%= label_tag(:title, 'Title') %><br>
+    <%= text_field_tag(:title) %>
+    
+    <%= label_tag(:content, 'Content') %><br>
+    <%= text_area_tag(:content) %>
+    <%= submit_tag('Ask question') %>
+  <% end %>
+</div>
