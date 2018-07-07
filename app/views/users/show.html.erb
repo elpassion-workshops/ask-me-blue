@@ -1,8 +1,6 @@
-<% user = current_user %>
-
-<p><%= user.email %></p>
+<p><%= @user.email %></p>
 
 
-<% user.questions.each do |question| %>
+<% @user.questions.each do |question| %>
 	<p> <%= link_to question.title, question %> </p>
 <% end %>
