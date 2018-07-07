@@ -35,6 +35,10 @@ RSpec.describe 'Create new account' do
     fill_in 'Password confirmation', with: '123123'
 
     click_button 'Sign up'
+    user = User.first
+
+    Question.create(title: "title1", user_id: user.id)
+    Question.create(title: "title2", user_id: user.id)
   end
 
 	it "shuld be possible to visit edit user page" do
@@ -43,10 +47,16 @@ RSpec.describe 'Create new account' do
    end
 
   describe "interaction" do
-    it "should show parameters of current user" do
+    it "should show user mail" do
       visit user_path
       expect(page).to have_content "test@test.test"
-      #expect(page).to have_content 
+    end
+
+    it "should show user questions" do
+
+      visit user_path
+      expect(page).to have_content "title1"
+      expect(page).to have_content "title2"
     end
   end
 end
